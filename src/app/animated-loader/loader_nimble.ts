@@ -11,6 +11,15 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-:root {
-    --main-color: #be1522;
+
+import {Component} from "@angular/core";
+
+@Component({
+    selector: 'loader-nimble',
+    templateUrl: './loader_nimble.html',
+    styleUrls: ['./loader_nimble.css']
+})
+
+export class LoaderNimble {
+    constructor() {}
 }

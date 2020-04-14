@@ -72,7 +72,7 @@
                                 </button>
 
                                 <button *ngIf="shoppingCartDataService.isShoppingCartButtonVisible(catLine.classificationUri)" class="btn btn-primary col space-after" (click)="onAddToCart(catLine,i); $event.stopPropagation();" [disabled]="isAddCartDisabled(i, catLine)">
-                                    <span class="fas fa-shopping-cart mr-1"></span>
+                                    <span class="fas fa-arrow-down mr-1"></span>
                                     <span [innerHTML]="'Add to Cart' | translate"></span>
                                 </button>
 

@@ -7,67 +7,24 @@ node('nimble-jenkins-slave') {
     if (env.BRANCH_NAME == 'staging') {
 
         stage('Clone and Update') {
-            git(url: 'https://github.com/nimble-platform/frontend-service.git', branch: env.BRANCH_NAME)
+            git(url: 'https://github.com/i-Asset/frontend-service.git', branch: env.BRANCH_NAME)
         }
       
-		    stage('Build Application - FMP') {
-            sh 'mvn clean install -Denv=fmp-staging'
-        }
-
-        stage('Build Docker - FMP') {
-            sh 'docker build -t nimbleplatform/frontend-service:fmp-staging ./target'
-        }
-
-        stage('Push Docker - FMP') {
-            sh 'docker push nimbleplatform/frontend-service:fmp-staging'
-        }
-
-        stage('Deploy - FMP') {
-            sh 'ssh staging "cd /srv/nimble-staging/ && ./run-staging.sh restart-single frontend-service-fmp"'
-        }
 
         stage('Build Application - MVP') {
             sh 'mvn clean install -Denv=staging'
         }
 
         stage('Build Docker - MVP') {
-            sh 'docker build -t nimbleplatform/frontend-service:staging ./target'
+            sh 'docker build -t iassetplatform/frontend-service:staging ./target'
         }
 
         stage('Push Docker - MVP') {
-            sh 'docker push nimbleplatform/frontend-service:staging'
+            sh 'docker push iassetplatform/frontend-service:staging'
         }
 
         stage('Deploy - MVP') {
-            sh 'ssh staging "cd /srv/nimble-staging/ && ./run-staging.sh restart-single frontend-service"'
-        }
-
-        stage('Build Application - EFAC') {
-            sh 'mvn clean install -Denv=efac-staging'
-        }
-
-        stage('Build Docker - EFAC') {
-            sh 'docker build -t nimbleplatform/frontend-service:efac-staging ./target'
-        }
-
-        stage('Push Docker - EFAC') {
-            sh 'docker push nimbleplatform/frontend-service:efac-staging'
-        }
-
-        stage('Deploy - EFAC') {
-            sh 'ssh staging "cd /srv/nimble-staging/ && ./run-staging.sh restart-single frontend-service-efactory"'
-        }
-
-        stage('Build Application - Eco House') {
-            sh 'mvn clean install -Denv=ecohouse'
-        }
-
-        stage('Build Docker - Eco House') {
-            sh 'docker build -t nimbleplatform/frontend-service:ecohouse ./target'
-        }
-
-        stage('Push Docker - Eco House') {
-            sh 'docker push nimbleplatform/frontend-service:ecohouse'
+            sh 'ssh staging "cd /srv/docker-setup/staging/ && ./run-staging.sh restart-single frontend-service"'
         }
     }
 
@@ -77,7 +34,7 @@ node('nimble-jenkins-slave') {
     if (env.BRANCH_NAME == 'master') {
 
         stage('Clone and Update') {
-            git(url: 'https://github.com/nimble-platform/frontend-service.git', branch: env.BRANCH_NAME)
+            git(url: 'https://github.com/i-Asset/frontend-service.git', branch: env.BRANCH_NAME)
         }
 
         stage('Build Application') {

@@ -7,9 +7,9 @@ export const debug = false;
 
 // Base path variables
 
-export const base_path = "http://nimble-staging.salzburgresearch.at";
-export const ub_base = "http://nimble-staging.salzburgresearch.at/search";
-export const idpURL = "http://nimble-staging.salzburgresearch.at:8080/auth/realms/master";
+export const base_path = "http://192.168.48.115";
+export const ub_base = "http://192.168.48.115/search";
+export const idpURL = "http://192.168.48.115:8080/auth/realms/master";
 export const collab_path = "http://nimble.eu-de.containers.appdomain.cloud/collaborations";
 export const pw_reset_link = idpURL + "/login-actions/reset-credentials?client_id=nimble_client";
 export const frontendURL = base_path + "/frontend/";
@@ -23,7 +23,7 @@ export const bpe_endpoint = `${base_path}/business-process`;
 export const data_channel_endpoint = `${base_path}/data-channel`;
 export const data_aggregation_endpoint = `${base_path}/data-aggregation`;
 export const trust_service_endpoint = `${base_path}/trust`;
-export const indexing_service_endpoint = `${base_path}/index`;
+export const indexing_service_endpoint = `${base_path}/assetindex`;
 export const rocketChatEndpoint = `${base_path}:3000`;
 export const logstash_endpoint = `${base_path}/logstash`;
 export const kibana_endpoint = `${base_path}/kibana/app/kibana`;
@@ -73,7 +73,7 @@ export const config = {
         }
     },
     "collaborationEnabled": false,
-    "dataChannelsEnabled": true,
+    "dataChannelsEnabled": false,
     "defaultBusinessProcessIds": [
     ],
     "defaultSearchIndex": "Category",
@@ -125,7 +125,7 @@ export const config = {
             }
         ]
     },
-    "kibanaEnabled": true,
+    "kibanaEnabled": false,
     "languageSettings": {
         "available": ["en", "de"],
         "fallback": "en"

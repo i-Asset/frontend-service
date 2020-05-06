@@ -20,9 +20,8 @@ styleUrls: ["./asset-search.component.css"]
 
 export class AssetSearch implements OnInit {
 
-    private instances: ModelAssetInstance[] = [];
-
-    private selectedInstance: ModelAssetInstance = null;
+    public instances: ModelAssetInstance[] = [];
+    public selectedInstance: ModelAssetInstance = null;
 
     //-------------------------------------------------------------------------------------
     // Init Functions

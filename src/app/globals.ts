@@ -1,23 +1,23 @@
 'use strict';
 
 /*
- * Copyright 2020
- * SRFG - Salzburg Research Forschungsgesellschaft mbH; Salzburg; Austria
-   In collaboration with
- * SRDC - Software Research & Development Consultancy; Ankara; Turkey
- * AIDIMME - Technological Institute of Metalworking, Furniture, Wood, Packaging and Related sectors; Valencia; Spain
- * UB - University of Bremen, Faculty of Production Engineering; Bremen; Germany
- * BIBA - Bremer Institut für Produktion und Logistik GmbH; Bremen; Germany
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-       http://www.apache.org/licenses/LICENSE-2.0
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
- */
+* Copyright 2020
+* SRFG - Salzburg Research Forschungsgesellschaft mbH; Salzburg; Austria
+In collaboration with
+* SRDC - Software Research & Development Consultancy; Ankara; Turkey
+* AIDIMME - Technological Institute of Metalworking, Furniture, Wood, Packaging and Related sectors; Valencia; Spain
+* UB - University of Bremen, Faculty of Production Engineering; Bremen; Germany
+* BIBA - Bremer Institut für Produktion und Logistik GmbH; Bremen; Germany
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 
 // Development variables
 
@@ -94,9 +94,9 @@ export const tntIoTBlockchainEndpoint = `${base_path}/iot-bc-api/api/verify`;
 - addCartBehaviour: If "single" a product can be added to the shopping cart once, if "multiple" it can be added multiple times
 - companyRegistrationRequired: Boolean flag if users need to register (or be assigned to) a company before using any platform feature
 - categoryFilter: Allows configuring the usage of different ontologies. The key is the ontology name, the value is a JSON object with the following entries:
-	* hiddenCategories: An array of top-level category IDs that will be hidden from the UI
-	* logisticsCategory: The ID of the logistics categoryFilter
-	* ontologyPrefix: The prefix of the ontology used to identify it
+* hiddenCategories: An array of top-level category IDs that will be hidden from the UI
+* logisticsCategory: The ID of the logistics categoryFilter
+* ontologyPrefix: The prefix of the ontology used to identify it
 - collaborationEnabled: Boolean flag if the collaboration feature is enabled in the dashboard (textile use case)
 - dataChannelsEnabled: Boolean flag if data channels shall be supported
 - defaultBusinessProcessIds: Array of default business processes that shall be enabled for a company upon registration. Applicable values are "Item_Information_Request", "Ppap", "Negotiation", "Order", "Transport_Execution_Plan" and "Fulfilment". An empty array enables all processes
@@ -106,12 +106,12 @@ export const tntIoTBlockchainEndpoint = `${base_path}/iot-bc-api/api/verify`;
 - frameContractEnabled: Boolean flag is frame contracts are applicable
 - imprint: HTML string of the imprint information to be shown on the according subpage
 - kibanaConfig: Allows configuring the titles and links to the Kibana dashboards. The keys are "companyDashboards" (Basic company information), "companyGraphs" (More complex company information) and "dashboards" (Platform information), this value is an array of JSON objects with the following entries:
-	* title: Title to be displayed on the UI
-	* url: Sub-URL of the Kibana page starting at "#"
+* title: Title to be displayed on the UI
+* url: Sub-URL of the Kibana page starting at "#"
 - kibanaEnabled: Boolean flag if Kibana is used on the instance
 - languageSettings: Allows configuring the languages on the instance. The JSON object uses the following structure:
-	* available: Array of ISO language codes available for selection on the platform. Make sure to include an according JSON file for each language in "src/assets/i18n"
-	* fallback: The language to be used in case a translation for the current user selection is unavailble
+* available: Array of ISO language codes available for selection on the platform. Make sure to include an according JSON file for each language in "src/assets/i18n"
+* fallback: The language to be used in case a translation for the current user selection is unavailble
 - loggingEnabled: Boolean flag if the logstash endpoint shall be used for tracking user activity
 - logoPath: Link to the logo disabled in the navbar
 - federationLogoPath: Link to the logo of the federated login
@@ -120,8 +120,8 @@ export const tntIoTBlockchainEndpoint = `${base_path}/iot-bc-api/api/verify`;
 - vatEnabled: Boolean flag if VAT rates shall be included in price calculations
 - projectsEnabled: Boolean flag if project management is available on the dashboard
 - requiredAgreements: Array of JSON objects defining the terms a user has to agree to upon registration. Each entry uses the following structure:
-	* title: Title to be displayed on the UI
-	* src: Link to the agreement document
+* title: Title to be displayed on the UI
+* src: Link to the agreement document
 - showChat: Boolean flag if the chat is available on the instance
 - showAgent: Boolean flag if the agent configuration is available on the instance
 - showCompanyMembers: Boolean flag if all company members shall be eligible to see the list of company members
@@ -159,86 +159,86 @@ TODO Mathias:
 */
 
 export const config = {
-    "federationInstanceId": "IASSET-STAGING",
-    "platformName": "i-Asset Staging",
-    "envName": "iasset-staging",
-    "addCartBehaviour": "single",
-    "companyRegistrationRequired": false,
-    "categoryFilter": {
-        "eClass": {
-            "hiddenCategories": [],
-            "logisticsCategory": "14000000",
-            "ontologyPrefix": "http://www.nimble-project.org/resource/eclass#"
-        }
-    },
-    "collaborationEnabled": false,
-    "dataChannelsEnabled": true,
-    "defaultBusinessProcessIds": [
-    ],
-    "defaultSearchIndex": "Category",
-    "delegationEnabled": false,
-    "docLink": "https://www.nimble-project.org/docs/",
-    "frameContractTabEnabled": false,
-    "imprint": "<u>Platform Owner & Provider</u><br/><b>Salzburg Research Forschungsgesellschaft m.b.H.</b><br/>Jakob Haringer Straße 5/3<br/>5020 Salzburg, Austria<br/>Phone: +43.662.2288.200<br/>Fax: +43.662.2288.222<br/>E-Mail: <a href='mailto:info@salzburgresearch.at'>info@salzburgresearch.at</a><br/>Internet: <a href='https://www.salzburgresearch.at' target='_blank'>www.salzburgresearch.at</a><br/>Managing Director: Siegfried Reich<br/>Registry Number: LG Salzburg (FN 149016 t)<br/>UID: ATU 41145408<br/>Content Officer: Siegfried Reich<br/>Owner: State of Salzburg (100%)",
-    "kibanaConfig": {
-        "companyDashboards": [
-            {
-                "title": "Company Visits",
-                "url": "#/dashboard/d1503680-e5bf-11e9-a14e-bde7739ac822?embed=true&_g=(refreshInterval:(pause:!t,value:0),time:(from:now-1y,mode:quick,to:now))&_a=(filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'7e688530-cd69-11e9-b5e8-e908493e1aa7',key:companyId,negate:!f,params:(query:'41915',type:phrase),type:phrase,value:'41915'),query:(match:(companyId:(query:'41915',type:phrase))))))"
-            },
-            {
-                "title": "Asset / Data-Service Visits",
-                "url": "#/dashboard/d7b241a0-e5d1-11e9-a14e-bde7739ac822?embed=true&_g=(refreshInterval:(pause:!t,value:0),time:(from:now-1y,mode:quick,to:now))&_a=(description:'',filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'7e688530-cd69-11e9-b5e8-e908493e1aa7',key:manufactured_companyId.keyword,negate:!f,params:(query:'41915',type:phrase),type:phrase,value:'41915'),query:(match:(manufactured_companyId.keyword:(query:'41915',type:phrase))))))"
-            }
-        ],
-        "companyGraphs": [
-            {
-                "title": "Asset / Data-Service Category",
-                "url": "#/visualize/edit/76aff780-e5d1-11e9-a14e-bde7739ac822?embed=true&_g=(refreshInterval:(pause:!t,value:0),time:(from:now-1y,mode:quick,to:now))&_a=(filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'7e688530-cd69-11e9-b5e8-e908493e1aa7',key:manufactured_companyId,negate:!f,params:(query:'41915',type:phrase),type:phrase,value:'41915'),query:(match:(manufactured_companyId:(query:'41915',type:phrase))))))"
-            },
-            {
-                "title": "Asset / Data-Service Category Filter",
-                "url": "#/visualize/edit/8d916fd0-e5de-11e9-a14e-bde7739ac822?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1y,mode:quick,to:now))&_a=(filters:!(('$state':(store:appState),meta:(alias:'Select+Category',disabled:!t,index:'7e688530-cd69-11e9-b5e8-e908493e1aa7',key:category.keyword,negate:!f,params:(query:'Auxiliary+supply,+additive,+cleaning+agent',type:phrase),type:phrase,value:'Auxiliary+supply,+additive,+cleaning+agent'),query:(match:(category.keyword:(query:'Auxiliary+supply,+additive,+cleaning+agent',type:phrase)))),('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'7e688530-cd69-11e9-b5e8-e908493e1aa7',key:manufactured_companyId,negate:!f,params:(query:'41915',type:phrase),type:phrase,value:'41915'),query:(match:(manufactured_companyId:(query:'41915',type:phrase))))),linked:!f,query:(language:lucene,query:'activity:+%22product_visit%22'),uiState:(vis:(params:(sort:(columnIndex:1,direction:!n)))),vis:(aggs:!((enabled:!t,id:'1',params:(),schema:metric,type:count),(enabled:!t,id:'2',params:(customLabel:'Company+Name',field:active_company.keyword,missingBucket:!f,missingBucketLabel:Missing,order:desc,orderBy:'1',otherBucket:!f,otherBucketLabel:Other,size:5),schema:bucket,type:terms),(enabled:!t,id:'3',params:(customLabel:Category,field:category.keyword,missingBucket:!f,missingBucketLabel:Missing,order:desc,orderBy:'1',otherBucket:!f,otherBucketLabel:Other,size:5),schema:bucket,type:terms)),params:(perPage:10,showMetricsAtAllLevels:!f,showPartialRows:!f,showTotal:!f,sort:(columnIndex:1,direction:!n),totalFunc:sum),title:'Product%2FService+By+Category',type:table))"
-            }
-        ],
-        "dashboards": [
-            {
-                "title": "User Logins & Registrations",
-                "url": "#/dashboard/5d41a2b0-cd6e-11e9-b5e8-e908493e1aa7?embed=true&_g=(refreshInterval:(pause:!t,value:0),time:(from:now-1y,mode:quick,to:now))"
-            },
-            {
-                "title": "Business Process Activities",
-                "url": "#/dashboard/548c5e20-cd6f-11e9-b5e8-e908493e1aa7?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow%2FM%2Cmode%3Aquick%2Cto%3Anow%2FM))"
-            },
-            {
-                "title": "Asset Activities",
-                "url": "#/dashboard/48ed8e30-cd70-11e9-b5e8-e908493e1aa7?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow%2FM%2Cmode%3Aquick%2Cto%3Anow%2FM))"
-            },
-            {
-                "title": "Asset / Data-Service Visits",
-                "url": "#/dashboard/3296ca60-ec07-11e9-a14e-bde7739ac822?embed=true&_g=(refreshInterval:(pause:!t,value:0),time:(from:now-1y,mode:quick,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(darkTheme:!f,hidePanelTitles:!f,useMargins:!t),panels:!((embeddableConfig:(),gridData:(h:11,i:'1',w:14,x:0,y:0),id:b0b3cdd0-e5d1-11e9-a14e-bde7739ac822,panelIndex:'1',type:visualization,version:'6.7.1'),(embeddableConfig:(),gridData:(h:11,i:'4',w:10,x:14,y:0),id:'699fc8d0-e5c8-11e9-a14e-bde7739ac822',panelIndex:'4',type:visualization,version:'6.7.1'),(embeddableConfig:(),gridData:(h:11,i:'5',w:10,x:24,y:0),id:'680d45d0-ec06-11e9-a14e-bde7739ac822',panelIndex:'5',type:visualization,version:'6.7.1'),(embeddableConfig:(),gridData:(h:11,i:'6',w:14,x:34,y:0),id:'0d278210-ec07-11e9-a14e-bde7739ac822',panelIndex:'6',type:visualization,version:'6.7.1')),query:(language:lucene,query:''),timeRestore:!f,title:'Platform+Visits+Dashboard',viewMode:view)"
-            },
-            {
-                "title": "Compay Visits",
-                "url": "#/dashboard/a6b560c0-ec0f-11e9-a14e-bde7739ac822?embed=true&_g=(refreshInterval:(pause:!t,value:0),time:(from:now-1y,mode:quick,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(darkTheme:!f,hidePanelTitles:!f,useMargins:!t),panels:!((embeddableConfig:(),gridData:(h:11,i:'1',w:24,x:0,y:0),id:ef9d04f0-e520-11e9-a14e-bde7739ac822,panelIndex:'1',type:visualization,version:'6.7.1'),(embeddableConfig:(),gridData:(h:11,i:'2',w:24,x:24,y:0),id:ff5d3930-e5bd-11e9-a14e-bde7739ac822,panelIndex:'2',type:visualization,version:'6.7.1')),query:(language:lucene,query:''),timeRestore:!f,title:'Platform+Company+Visits',viewMode:view)"
-            }
-        ]
-    },
-    "kibanaEnabled": true,
-    "languageSettings": {
-        "available": ["en", "de"],
-        "fallback": "en"
-    },
-    "loggingEnabled": true,
-    "logoPath": "./assets/logo_iasset_white.png",
-    "federationLogoPath": "./assets/logo_mvp_efactory.png",
-    "logoRequired": false,
-    "phoneNumberRequired": false,
-    "vatEnabled": true,
-    "projectsEnabled": false,
-    "requiredAgreements": [
-        {
-            "title": "End-User License Agreement (EULA)",
+"federationInstanceId": "IASSET-STAGING",
+"platformName": "i-Asset Staging",
+"envName": "iasset-staging",
+"addCartBehaviour": "single",
+"companyRegistrationRequired": false,
+"categoryFilter": {
+"eClass": {
+"hiddenCategories": [],
+"logisticsCategory": "14000000",
+"ontologyPrefix": "http://www.nimble-project.org/resource/eclass#"
+}
+},
+"collaborationEnabled": false,
+"dataChannelsEnabled": true,
+"defaultBusinessProcessIds": [
+],
+"defaultSearchIndex": "Category",
+"delegationEnabled": false,
+"docLink": "https://www.nimble-project.org/docs/",
+"frameContractTabEnabled": false,
+"imprint": "<u>Platform Owner & Provider</u><br/><b>Salzburg Research Forschungsgesellschaft m.b.H.</b><br/>Jakob Haringer Straße 5/3<br/>5020 Salzburg, Austria<br/>Phone: +43.662.2288.200<br/>Fax: +43.662.2288.222<br/>E-Mail: <a href='mailto:info@salzburgresearch.at'>info@salzburgresearch.at</a><br/>Internet: <a href='https://www.salzburgresearch.at' target='_blank'>www.salzburgresearch.at</a><br/>Managing Director: Siegfried Reich<br/>Registry Number: LG Salzburg (FN 149016 t)<br/>UID: ATU 41145408<br/>Content Officer: Siegfried Reich<br/>Owner: State of Salzburg (100%)",
+"kibanaConfig": {
+"companyDashboards": [
+{
+"title": "Company Visits",
+"url": "#/dashboard/d1503680-e5bf-11e9-a14e-bde7739ac822?embed=true&_g=(refreshInterval:(pause:!t,value:0),time:(from:now-1y,mode:quick,to:now))&_a=(filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'7e688530-cd69-11e9-b5e8-e908493e1aa7',key:companyId,negate:!f,params:(query:'41915',type:phrase),type:phrase,value:'41915'),query:(match:(companyId:(query:'41915',type:phrase))))))"
+},
+{
+"title": "Asset / Data-Service Visits",
+"url": "#/dashboard/d7b241a0-e5d1-11e9-a14e-bde7739ac822?embed=true&_g=(refreshInterval:(pause:!t,value:0),time:(from:now-1y,mode:quick,to:now))&_a=(description:'',filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'7e688530-cd69-11e9-b5e8-e908493e1aa7',key:manufactured_companyId.keyword,negate:!f,params:(query:'41915',type:phrase),type:phrase,value:'41915'),query:(match:(manufactured_companyId.keyword:(query:'41915',type:phrase))))))"
+}
+],
+"companyGraphs": [
+{
+"title": "Asset / Data-Service Category",
+"url": "#/visualize/edit/76aff780-e5d1-11e9-a14e-bde7739ac822?embed=true&_g=(refreshInterval:(pause:!t,value:0),time:(from:now-1y,mode:quick,to:now))&_a=(filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'7e688530-cd69-11e9-b5e8-e908493e1aa7',key:manufactured_companyId,negate:!f,params:(query:'41915',type:phrase),type:phrase,value:'41915'),query:(match:(manufactured_companyId:(query:'41915',type:phrase))))))"
+},
+{
+"title": "Asset / Data-Service Category Filter",
+"url": "#/visualize/edit/8d916fd0-e5de-11e9-a14e-bde7739ac822?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1y,mode:quick,to:now))&_a=(filters:!(('$state':(store:appState),meta:(alias:'Select+Category',disabled:!t,index:'7e688530-cd69-11e9-b5e8-e908493e1aa7',key:category.keyword,negate:!f,params:(query:'Auxiliary+supply,+additive,+cleaning+agent',type:phrase),type:phrase,value:'Auxiliary+supply,+additive,+cleaning+agent'),query:(match:(category.keyword:(query:'Auxiliary+supply,+additive,+cleaning+agent',type:phrase)))),('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'7e688530-cd69-11e9-b5e8-e908493e1aa7',key:manufactured_companyId,negate:!f,params:(query:'41915',type:phrase),type:phrase,value:'41915'),query:(match:(manufactured_companyId:(query:'41915',type:phrase))))),linked:!f,query:(language:lucene,query:'activity:+%22product_visit%22'),uiState:(vis:(params:(sort:(columnIndex:1,direction:!n)))),vis:(aggs:!((enabled:!t,id:'1',params:(),schema:metric,type:count),(enabled:!t,id:'2',params:(customLabel:'Company+Name',field:active_company.keyword,missingBucket:!f,missingBucketLabel:Missing,order:desc,orderBy:'1',otherBucket:!f,otherBucketLabel:Other,size:5),schema:bucket,type:terms),(enabled:!t,id:'3',params:(customLabel:Category,field:category.keyword,missingBucket:!f,missingBucketLabel:Missing,order:desc,orderBy:'1',otherBucket:!f,otherBucketLabel:Other,size:5),schema:bucket,type:terms)),params:(perPage:10,showMetricsAtAllLevels:!f,showPartialRows:!f,showTotal:!f,sort:(columnIndex:1,direction:!n),totalFunc:sum),title:'Product%2FService+By+Category',type:table))"
+}
+],
+"dashboards": [
+{
+"title": "User Logins & Registrations",
+"url": "#/dashboard/5d41a2b0-cd6e-11e9-b5e8-e908493e1aa7?embed=true&_g=(refreshInterval:(pause:!t,value:0),time:(from:now-1y,mode:quick,to:now))"
+},
+{
+"title": "Business Process Activities",
+"url": "#/dashboard/548c5e20-cd6f-11e9-b5e8-e908493e1aa7?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow%2FM%2Cmode%3Aquick%2Cto%3Anow%2FM))"
+},
+{
+"title": "Asset Activities",
+"url": "#/dashboard/48ed8e30-cd70-11e9-b5e8-e908493e1aa7?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow%2FM%2Cmode%3Aquick%2Cto%3Anow%2FM))"
+},
+{
+"title": "Asset / Data-Service Visits",
+"url": "#/dashboard/3296ca60-ec07-11e9-a14e-bde7739ac822?embed=true&_g=(refreshInterval:(pause:!t,value:0),time:(from:now-1y,mode:quick,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(darkTheme:!f,hidePanelTitles:!f,useMargins:!t),panels:!((embeddableConfig:(),gridData:(h:11,i:'1',w:14,x:0,y:0),id:b0b3cdd0-e5d1-11e9-a14e-bde7739ac822,panelIndex:'1',type:visualization,version:'6.7.1'),(embeddableConfig:(),gridData:(h:11,i:'4',w:10,x:14,y:0),id:'699fc8d0-e5c8-11e9-a14e-bde7739ac822',panelIndex:'4',type:visualization,version:'6.7.1'),(embeddableConfig:(),gridData:(h:11,i:'5',w:10,x:24,y:0),id:'680d45d0-ec06-11e9-a14e-bde7739ac822',panelIndex:'5',type:visualization,version:'6.7.1'),(embeddableConfig:(),gridData:(h:11,i:'6',w:14,x:34,y:0),id:'0d278210-ec07-11e9-a14e-bde7739ac822',panelIndex:'6',type:visualization,version:'6.7.1')),query:(language:lucene,query:''),timeRestore:!f,title:'Platform+Visits+Dashboard',viewMode:view)"
+},
+{
+"title": "Compay Visits",
+"url": "#/dashboard/a6b560c0-ec0f-11e9-a14e-bde7739ac822?embed=true&_g=(refreshInterval:(pause:!t,value:0),time:(from:now-1y,mode:quick,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(darkTheme:!f,hidePanelTitles:!f,useMargins:!t),panels:!((embeddableConfig:(),gridData:(h:11,i:'1',w:24,x:0,y:0),id:ef9d04f0-e520-11e9-a14e-bde7739ac822,panelIndex:'1',type:visualization,version:'6.7.1'),(embeddableConfig:(),gridData:(h:11,i:'2',w:24,x:24,y:0),id:ff5d3930-e5bd-11e9-a14e-bde7739ac822,panelIndex:'2',type:visualization,version:'6.7.1')),query:(language:lucene,query:''),timeRestore:!f,title:'Platform+Company+Visits',viewMode:view)"
+}
+]
+},
+"kibanaEnabled": true,
+"languageSettings": {
+"available": ["en", "de"],
+"fallback": "en"
+},
+"loggingEnabled": true,
+"logoPath": "./assets/logo_iasset_white.png",
+"federationLogoPath": "./assets/logo_mvp_efactory.png",
+"logoRequired": false,
+"phoneNumberRequired": false,
+"vatEnabled": true,
+"projectsEnabled": false,
+"requiredAgreements": [
+{
+"title": "End-User License Agreement (EULA)",
             "src": "./assets/eula.pdf"
         }
     ],

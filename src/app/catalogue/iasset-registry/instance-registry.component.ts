@@ -54,13 +54,13 @@ styleUrls: ["./instance-registry.component.css"]
 
 export class AssetInstanceRegistry implements OnInit {
 
-    private publishMode: PublishMode;
-    private publishingGranularity: "manually" | "automatically" = "manually";
-    private newAssetInstance: NewAssetInstance = new NewAssetInstance(null, null, null, null, null, null, null, null, null);
-    private publishForm: FormGroup = new FormGroup({});
+    public publishMode: PublishMode;
+    public publishingGranularity: "manually" | "automatically" = "manually";
+    public newAssetInstance: NewAssetInstance = new NewAssetInstance(null, null, null, null, null, null, null, null, null);
+    public publishForm: FormGroup = new FormGroup({});
 
-    private registeredAssetTypes: ModelAssetType[] = [];  // all registered asset types
-    private allTypeNames: string[] = [];  // the names of all registered asset types
+    public registeredAssetTypes: ModelAssetType[] = [];  // all registered asset types
+    public allTypeNames: string[] = [];  // the names of all registered asset types
 
     //-------------------------------------------------------------------------------------
     // canDeactivate

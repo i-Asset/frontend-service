@@ -57,10 +57,10 @@ styleUrls: ["./type-registry.component.css"]
 
 export class AssetTypeRegistry implements OnInit {
 
-    private publishMode: PublishMode;
-    private publishingGranularity: "manually" | "automatically" = "manually";
-    private newAssetType: NewAssetType = new NewAssetType(null, null, null, null, null, null);
-    private newProperty: NewProperty = new NewProperty(null, null, null, null, null, null);
+    public publishMode: PublishMode;
+    public publishingGranularity: "manually" | "automatically" = "manually";
+    public newAssetType: NewAssetType = new NewAssetType(null, null, null, null, null, null);
+    public newProperty: NewProperty = new NewProperty(null, null, null, null, null, null);
 
     //-------------------------------------------------------------------------------------
     // canDeactivate

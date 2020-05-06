@@ -32,16 +32,16 @@ styleUrls: ["./asset-detail.component.css"]
 export class AssetDetail implements OnInit {
 
     // essential view members
-    @Input() private instance: ModelAssetInstance;
-    private type : ModelAssetType = new ModelAssetType("", "", "", "", "", null);
+    @Input() public instance: ModelAssetInstance;
+    public type : ModelAssetType = new ModelAssetType("", "", "", "", "", null);
 
     // property display members
-    private propertyNames : string[] = [];
-    private selectedPropertyStream: string = "";
+    public propertyNames : string[] = [];
+    public selectedPropertyStream: string = "";
 
     // maintenance members
-    private editMaintenance: boolean = false;
-    private newMaintenance: NewMaintenance = new NewMaintenance(null, null, null, null, null, null, null, null);
+    public editMaintenance: boolean = false;
+    public newMaintenance: NewMaintenance = new NewMaintenance(null, null, null, null, null, null, null, null);
 
 
     //-------------------------------------------------------------------------------------

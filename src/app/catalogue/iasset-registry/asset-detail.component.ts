@@ -1,6 +1,7 @@
 
 
 import { Component, OnInit, Input } from "@angular/core";
+import { FormGroup } from '@angular/forms';
 import { ModelAssetType } from "./model/model-asset-type";
 import { ModelAssetInstance } from "./model/model-asset-instance";
 import { ModelMaintenance } from "./model/model-maintenance";
@@ -43,6 +44,7 @@ export class AssetDetail implements OnInit {
     public editMaintenance: boolean = false;
     public newMaintenance: NewMaintenance = new NewMaintenance(null, null, null, null, null, null, null, null);
 
+    public publishForm: FormGroup = new FormGroup({});
 
     //-------------------------------------------------------------------------------------
     // Init Functions

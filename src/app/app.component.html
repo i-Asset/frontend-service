@@ -54,7 +54,7 @@
                 </a>
             </li>
             <li class="nav-item" *ngIf="checkRoles('comp_req')" routerLinkActive="active">
-                <a class="nav-link" routerLink="/catalogue/asset-search">
+                <a class="nav-link" routerLink="/iasset-registry/asset-search">
                     <i class="fa fa-search"></i> <span [innerHTML]="'Search' | translate"></span>
                 </a>
             </li>
@@ -63,10 +63,10 @@
                     <i class="fa fa-arrow-up"></i> <span [innerHTML]="'Register' | translate"></span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuPublish" ngbDropdownMenu>
-                    <a class="dropdown-item" [routerLink]="['/catalogue/register-type']" [queryParams]="{pageRef: 'menu', productType: 'product'}" routerLinkActive="active">
+                    <a class="dropdown-item" [routerLink]="['/iasset-registry/register-type']" [queryParams]="{pageRef: 'menu', productType: 'product'}" routerLinkActive="active">
                         <i class="fa fa-cog dd-icon"></i> <span [innerHTML]="'Asset Type' | translate"></span>
                     </a>
-                    <a *ngIf="enableLogisticServicePublishing" class="dropdown-item" [routerLink]="['/catalogue/register-instance']" [queryParams]="{pageRef: 'single', productType: 'transportation'}" routerLinkActive="active">
+                    <a *ngIf="enableLogisticServicePublishing" class="dropdown-item" [routerLink]="['/iasset-registry/register-instance']" [queryParams]="{pageRef: 'single', productType: 'transportation'}" routerLinkActive="active">
                         <i class="fa fa-database dd-icon"></i> <span [innerHTML]="'Asset Instance' | translate"></span>
                     </a>
                 </div>

@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
-import { PublishMode } from "../model/publish/publish-mode";
+import { PublishMode } from "../catalogue/model/publish/publish-mode";
 import { ModelAssetType } from "./model/model-asset-type";
 import { ModelProperty } from "./model/model-property";
 import { AssetRegistryService } from "./iasset-registry.service";

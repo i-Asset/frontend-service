@@ -13,7 +13,7 @@ limitations under the License.
 */
 
 import { ModelMaintenance } from "./model-maintenance";
-import { BinaryObject } from '../../model/publish/binary-object';
+import { BinaryObject } from '../../catalogue/model/publish/binary-object';
 
 export class ModelAssetInstance {
 

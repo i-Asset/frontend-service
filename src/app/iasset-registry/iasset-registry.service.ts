@@ -15,7 +15,7 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import * as myGlobals from '../../globals';
+import * as myGlobals from '../globals';
 import { CookieService } from 'ng2-cookies';
 import { ModelAssetType } from "./model/model-asset-type";
 import { ModelAssetInstance } from "./model/model-asset-instance";

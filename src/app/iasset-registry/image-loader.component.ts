@@ -15,14 +15,14 @@ limitations under the License.
 */
 
 import { Component, OnInit, Input, ViewChild, ElementRef } from "@angular/core";
-import { PublishMode } from "../model/publish/publish-mode";
-import { Text } from '../model/publish/text';
-import { DEFAULT_LANGUAGE } from '../model/constants';
+import { PublishMode } from "../catalogue/model/publish/publish-mode";
+import { Text } from '../catalogue/model/publish/text';
+import { DEFAULT_LANGUAGE } from '../catalogue/model/constants';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { BinaryObject } from '../model/publish/binary-object';
+import { BinaryObject } from '../catalogue/model/publish/binary-object';
 import { TranslateService } from '@ngx-translate/core';
-import { ChildFormBase } from '../../common/validation/child-form-base';
-import { EmptyFormBase } from '../../common/validation/empty-form-base';
+import { ChildFormBase } from '../common/validation/child-form-base';
+import { EmptyFormBase } from '../common/validation/empty-form-base';
 const BASIC_PRODUCT_DETAILS = 'basic_product_details';
 
 //-------------------------------------------------------------------------------------

@@ -16,12 +16,12 @@ limitations under the License.
 
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { FormGroup } from "@angular/forms";
-import { PublishMode } from "../model/publish/publish-mode";
+import { PublishMode } from "../catalogue/model/publish/publish-mode";
 import { ModelAssetType } from "./model/model-asset-type";
 import { ModelAssetInstance } from "./model/model-asset-instance";
 import { ModelMaintenance } from "./model/model-maintenance";
 import { AssetImageLoader } from './image-loader.component';
-import { BinaryObject } from '../model/publish/binary-object';
+import { BinaryObject } from '../catalogue/model/publish/binary-object';
 import { AssetRegistryService } from "./iasset-registry.service";
 import { Router } from "@angular/router";
 

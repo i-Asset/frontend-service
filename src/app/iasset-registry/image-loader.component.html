@@ -19,7 +19,7 @@
     <div class="row space-before">
         <!-- Image -->
         <div class="col-3 product-image">
-            <img *ngIf="productImage.length == 0" class="img-max" src="../../../assets/images/empty_img.png">
+            <img *ngIf="productImage.length == 0" class="img-max" src="../../assets/images/empty_img.png">
             <img *ngIf="productImage.length > 0" class="img-selected d-block active" src="data:{{productImage[0].mimeCode}};base64,{{productImage[0].value}}" />
         </div>
     </div>

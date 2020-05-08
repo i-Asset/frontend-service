@@ -25,22 +25,12 @@ import { CategoryDeactivateGuardService } from "./category/category-deactivate-g
 import { LogisticServicePublishComponent } from './publish/logistic-service-publish.component';
 import { LogisticPublishDeactivateGuardService } from './logistic-publish-deactivate-guard.service';
 
-// IAsset specific imports
-import { AssetTypeRegistry } from './iasset-registry/type-registry.component';
-import { AssetInstanceRegistry } from './iasset-registry/instance-registry.component';
-import { AssetSearch } from './iasset-registry/asset-search.component';
-import { AssetDetail } from './iasset-registry/asset-detail.component';
 
 const routes: Routes = [
     { path: "categorysearch", component: CategorySearchComponent, canDeactivate: [CategoryDeactivateGuardService] },
     { path: "publish", component: ProductPublishComponent, canDeactivate: [PublishDeactivateGuardService] },
     { path: "publish-logistic", component: LogisticServicePublishComponent, canDeactivate: [LogisticPublishDeactivateGuardService] },
     { path: "catalogue", component: CatalogueViewComponent },
-    // IAsset specific paths
-    { path: "register-type", component: AssetTypeRegistry },
-    { path: "register-instance", component: AssetInstanceRegistry },
-    { path: "asset-search", component: AssetSearch },
-    { path: "asset-detail", component: AssetDetail }
 ];
 
 @NgModule({

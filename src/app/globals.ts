@@ -30,7 +30,7 @@ export const debug = false;
 // Nimble Platform base path of backend services
 export const base_path = "http://nimble-staging.salzburgresearch.at";
 // IAsset platform base path of backend services
-export const base_path_iasset = "http://iasset.salzburgresearch.at";
+export const base_path_iasset = "https://iasset.salzburgresearch.at";
 // Base path of explorative search endpoints
 export const ub_base = "http://nimble-staging.salzburgresearch.at/search";
 // Base path of Keycloak IDP
@@ -44,15 +44,15 @@ export const frontendURL = base_path + "/frontend/";
 
 
 // Service endpoints
-
-export const user_mgmt_endpoint = `${base_path}/identity`;
-export const catalogue_endpoint = `${base_path}/catalog`;
-export const bpe_endpoint = `${base_path}/business-process`; // TODO: Mathias: maybe not needed?
-export const data_channel_endpoint = `${base_path}/data-channel`;
+export const user_mgmt_endpoint = `${base_path_iasset}/identity`;
+export const catalogue_endpoint = `${base_path_iasset}/catalog`;
+export const bpe_endpoint = `${base_path_iasset}/business-process`;
+export const data_channel_endpoint = `${base_path_iasset}/data-channel`;
 export const iasset_registry_endpoint = `${base_path_iasset}/registry-service`;
+export const indexing_service_endpoint = `${base_path_iasset}/index`;
+
 export const data_aggregation_endpoint = `${base_path}/data-aggregation`;
 export const trust_service_endpoint = `${base_path}/trust`;
-export const indexing_service_endpoint = `${base_path_iasset}/index`;
 export const rocketChatEndpoint = `${base_path}:3000`;
 export const logstash_endpoint = `${base_path}/logstash`;
 export const kibana_endpoint = `${base_path}/kibana/app/kibana`;

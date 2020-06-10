@@ -50,7 +50,6 @@ export const bpe_endpoint = `${base_path_iasset}/business-process`;
 export const data_channel_endpoint = `${base_path_iasset}/data-channel`;
 export const iasset_registry_endpoint = `${base_path_iasset}/registry-service`;
 export const indexing_service_endpoint = `${base_path_iasset}/index`;
-
 export const data_aggregation_endpoint = `${base_path}/data-aggregation`;
 export const trust_service_endpoint = `${base_path}/trust`;
 export const rocketChatEndpoint = `${base_path}:3000`;

@@ -228,7 +228,8 @@ export const config = {
 "available": ["en", "de"],
 "fallback": "en"
 },
-"loggingEnabled": true,
+"loggingEnabled": false,
+"rocketChatEnabled": false,
 "logoPath": "./assets/logo_iasset_white.png",
 "federationLogoPath": "./assets/logo_mvp_efactory.png",
 "logoRequired": false,

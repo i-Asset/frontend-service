@@ -20,6 +20,10 @@
 
     <h1> Search Results </h1> <br/>
 
+    <div *ngIf="instances?.length == 0">
+        <p> Your search was unable to find any results </p>
+    </div>
+
     <div *ngFor="let instance of instances">
 
         <span id="search-result-card"

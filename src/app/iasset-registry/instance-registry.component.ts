@@ -33,7 +33,7 @@ constructor(
         public currentLocation: string,
         public originalLocation: string,
         public listMaintenance: ModelMaintenance[],
-        public listAvailableProperties: string,
+        public dataEndpoint: string,
         public ownerProperty: string,
         public assetImages: BinaryObject[]
     )
@@ -92,7 +92,7 @@ export class AssetInstanceRegistry implements OnInit {
                                               this.newAssetInstance.currentLocation,
                                               this.newAssetInstance.originalLocation,
                                               this.newAssetInstance.listMaintenance,
-                                              this.newAssetInstance.listAvailableProperties,
+                                              this.newAssetInstance.dataEndpoint,
                                               this.newAssetInstance.ownerProperty,
                                               this.newAssetInstance.assetImages)
 

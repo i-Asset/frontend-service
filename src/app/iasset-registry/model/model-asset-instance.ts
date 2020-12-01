@@ -26,7 +26,7 @@ constructor(
         public currentLocation: string,
         public originalLocation: string,
         public listMaintenance: ModelMaintenance[],
-        public listAvailableProperties: string,
+        public dataEndpoint: string,
         public ownerProperty: string,
         public assetImages: BinaryObject[]
     ) { }

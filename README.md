@@ -1,6 +1,6 @@
 # Frontend Service
 
-Frontend Services for the ROBxTASK Platform. Forked from i-Asset and nimble-platform frontend-service.
+Frontend Services for the i-Asset Platform. Forked from nimble-platform frontend-service.
 
 ## Development
 
@@ -91,7 +91,7 @@ Alternative:
 
 ```shell
 mvn clean install
-docker build -t robxtask/frontend-service ./target
+docker build -t iassetplatform/frontend-service ./target
 ```
 
 In order to run the docker image execute
@@ -103,7 +103,7 @@ In order to run the docker image execute
 Alternative:
 
 ```shell
-docker run -it --rm -p 9092:8080 --name robxtask_frontend-service robxtask/frontend-service
+docker run -it --rm -p 9092:8080 --name iassetplatform_frontend-service iassetplatform/frontend-service
 ```
 
 ### Environments
@@ -142,13 +142,13 @@ The translations themself have to be added to src/assets/[LANG].json
 In order to translate text in HTML files wrap the text inside a <span> (or other HTML tag) and make sure it does not contain any Angular variable bindings, e.g. convert
 
 ```shell
-Hello {{user}} - Welcome to the ROBxTASK cloud platform!
+Hello {{user}} - Welcome to the i-Asset platform!
 ```
 
 to
 
 ```shell
-<span [innerHTML]="'Hello' | translate"></span> {{user}} - <span [innerHTML]="'Welcome to the ROBxTASK cloud platform!' | translate"></span>
+<span [innerHTML]="'Hello' | translate"></span> {{user}} - <span [innerHTML]="'Welcome to the i-Asset platform!' | translate"></span>
 ```
 
 ### Translating HTML properties
@@ -197,7 +197,6 @@ npm run lint
 * * *
 
 # Acknowledgements
-ROBxTASK – Cloud platform for vendor-independent exchange of robot control tasks and processes (Nr.: 880866)
-Funded within the Austrian Research Promotion Agency (FFG) Program "IKT der Zukunft" by the Austrian Federal Ministry of Climate Action, Environment, Energy, Mobility, Innovation and Technology (BMK)
+The project iAsset has received funding from the BMDW and from FFG by means of the program COIN-NET.
 
-The project is based on results from https://github.com/nimble-platform/frontend-service and https://github.com/i-Asset/frontend-service (forked on April 12, 2021)
+The project is based on results from https://github.com/nimble-platform/frontend-service

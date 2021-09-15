@@ -249,6 +249,31 @@ export function selectPreferredName(cp: Category | Property, lang?: string) {
     return cp.preferredName[0].value;
 }
 
+export function selectDescriptionFromObject (description:any, lang?: string): string {
+  if (description == null || description.length == 0) {
+      return "";
+  }
+  let defaultLanguage = DEFAULT_LANGUAGE();
+  if (lang)
+      defaultLanguage = lang;
+  let englishValue = null;
+  for (let desc of description) {
+      if (desc.language === defaultLanguage) {
+          return desc.description;
+      }
+      else if (desc.language == "en") {
+          englishValue = desc.description;
+      }
+  }
+  if (englishValue) {
+      return englishValue;
+  }
+  if (description.length > 0 && description[0].description)
+      return description[0].description;
+  else
+      return '';
+}
+
 // returns the all values for the default language of the browser
 // if there's no value for the defualt language of the browser, then returns english values if possible
 export function selectPreferredValues(texts: Text[], lang?: string): string[] {

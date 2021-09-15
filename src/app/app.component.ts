@@ -401,7 +401,7 @@ export class AppComponent implements OnInit {
 
     public open(content) {
         this.mailto = "mailto:" + this.config.supportMail;
-        var subject = "NIMBLE Support Request (";
+        var subject = "i-Asset Support Request (";
         if (this.userID)
             subject += "UserID: " + this.userID + ", ";
         if (this.companyID)

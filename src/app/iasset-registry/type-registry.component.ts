@@ -20,6 +20,8 @@ import { ModelAssetType } from "./model/model-asset-type";
 import { ModelProperty } from "./model/model-property";
 import { AssetRegistryService } from "./iasset-registry.service";
 import { Router } from "@angular/router";
+import { CallStatus } from "../common/call-status";
+import { CookieService } from "ng2-cookies";
 
 class NewAssetType {
 constructor(
@@ -57,10 +59,25 @@ styleUrls: ["./type-registry.component.css"]
 
 export class AssetTypeRegistry implements OnInit {
 
+    public aasUpload = "";
+    public companyID = null;
     public publishMode: PublishMode;
     public publishingGranularity: "manually" | "automatically" = "manually";
     public newAssetType: NewAssetType = new NewAssetType(null, null, null, null, null, null);
     public newProperty: NewProperty = new NewProperty(null, null, null, null, null, null);
+    aasCallStatus: CallStatus = new CallStatus();
+
+    uploadAAS() {
+      this.aasCallStatus.submit();
+      this.registryService.registerAAS(this.aasUpload)
+      .then(res => {
+        this.aasCallStatus.callback("Registration done.", true);
+        this.aasUpload = "";
+      })
+      .catch(error => {
+        this.aasCallStatus.error("Error while registering asset type.", error);
+      });
+    }
 
     //-------------------------------------------------------------------------------------
     // canDeactivate
@@ -131,10 +148,11 @@ export class AssetTypeRegistry implements OnInit {
     // Init Functions
     //-------------------------------------------------------------------------------------
     ngOnInit() {
-
+        this.companyID = this.cookieService.get("company_id");
     }
 
     constructor(private registryService: AssetRegistryService,
+                private cookieService: CookieService,
                 private router: Router)
     {
 

@@ -135,6 +135,11 @@ export class SimpleSearchService {
             }
             searchObject.fq.push(facetQuery);
         }
+        if (searchObject.fq == null) {
+            searchObject.fq = [];
+        }
+        // Important: Shows only full (non-derived) AAS definitions
+        searchObject.fq.push("-derivedFrom_key:*");
         if (cat != "") {
             var add_url = `${this.product_cat_mix}:"${catID}"`;
             if (searchObject.fq == null) {

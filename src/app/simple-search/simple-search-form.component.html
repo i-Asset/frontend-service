@@ -21,6 +21,7 @@
             <div class="input-group">
                 <input *ngIf="searchTopic=='prod'" type="text" class="form-control" id="searchTerm" [(ngModel)]="model.q" [disabled]="searchCallStatus.isLoading()" [ngbTypeahead]="getSuggestions" [focusFirst]=false name="searchTerm" #q="ngModel" [placeholder]="'Product / Service' | translate">
                 <input *ngIf="searchTopic=='comp'" type="text" class="form-control" id="searchTerm" [(ngModel)]="model.q" [disabled]="searchCallStatus.isLoading()" [ngbTypeahead]="getCompSuggestions" [focusFirst]=false name="searchTerm" #q="ngModel" [placeholder]="'Company' | translate">
+                <!--
                 <div *ngIf="searchTopic=='prod'" ngbDropdown class="d-inline-block input-group-append">
                     <button *ngIf="searchTopic=='prod'" class="btn btn-outline-secondary" type="button" id="searchIndex" ngbDropdownToggle>
                         <span [innerHTML]="searchIndex | translate"></span>
@@ -29,6 +30,7 @@
                         <a *ngFor="let searchIndexName of searchIndexes" class="dropdown-item" (click)="changeSearchIndex(searchIndexName)"><span [innerHTML]="searchIndexName | translate"></span></a>
                     </div>
                 </div>
+                -->
                 <div class="input-group-append">
                     <button type="submit" class="btn btn-outline-secondary" [disabled]="searchCallStatus.isLoading() || !simpleSearchForm.form.valid">
                         <i class="fa fa-search"></i>
@@ -123,12 +125,12 @@
                     <span [innerHTML]="'No search results' | translate"></span><br />
                     <button class="btn btn-secondary mt-2 mb-2" (click)="resetSearch()"><span [innerHTML]="'Reset Search' | translate"></span></button>
                 </div>
-                <div *ngIf="size>0" class="col-4">
+                <div *ngIf="size>0" class="col-12">
                     <span [innerHTML]="'Showing results' | translate"></span> {{ start }} - {{ end }} <span [innerHTML]="'of' | translate"></span> {{ size }}
                 </div>
 
                 <!-- Search headers -->
-                <div *ngIf="size>0" class="col-8">
+                <div *ngIf="size>0" class="col-12">
                     <!-- Pagination -->
                     <div class="justify-content-center pagination">
                         <ngb-pagination [(collectionSize)]="size" [(page)]="page" [pageSize]="rows" [maxSize]="5" [boundaryLinks]="true" (pageChange)="get(objToSubmit)"></ngb-pagination>
@@ -155,8 +157,10 @@
                         <div class="col-sm-2">
                             <select class="form-control" (change)="setSort($event.target.value)">
                                 <option value="score desc" [selected]="sort=='score desc'"><span [innerHTML]="'Relevance' | translate"></span></option>
+                                <!--
                                 <option *ngIf="searchTopic=='prod'" [value]="getCurrencySort('asc')" [selected]="sort==getCurrencySort('asc')"><span [innerHTML]="'Price: Asc.' | translate"></span></option>
                                 <option *ngIf="searchTopic=='prod'" [value]="getCurrencySort('desc')" [selected]="sort==getCurrencySort('desc')"><span [innerHTML]="'Price: Desc.' | translate"></span></option>
+                                -->
                                 <option *ngIf="searchTopic=='prod'" value="{LANG}_label asc" [selected]="sort=='{LANG}_label asc'"><span [innerHTML]="'A -> Z' | translate"></span></option>
                                 <option *ngIf="searchTopic=='prod'" value="{LANG}_label desc" [selected]="sort=='{LANG}_label desc'"><span [innerHTML]="'Z -> A' | translate"></span></option>
                                 <option *ngIf="searchTopic=='comp'" value="trustRating desc" [selected]="sort=='trustRating desc'"><span [innerHTML]="'Rating' | translate"></span></option>
@@ -178,6 +182,7 @@
 
             <div class="row align-items-start">
                 <!-- Facets -->
+                <!--
                 <div class="col-4">
 
                     <div class="row mb-3">
@@ -189,7 +194,6 @@
 
                     <div *ngIf="size>0 && searchTopic=='prod'">
 
-                        <!-- category facet panel -->
                         <div class="pointer" (click)="showCatSection=!showCatSection">
                             <h5><span [innerHTML]="'Categories' | translate"></span> <span *ngIf="!showCatSection"><i class="fa fa-angle-double-down pl-1"></i></span><span *ngIf="showCatSection"><i class="fa fa-angle-double-up pl-1"></i></span></h5>
                         </div>
@@ -205,24 +209,16 @@
                                     </div>
                                     <div *ngIf="!cat_loading">
                                         <div *ngFor="let c of cat_levels; let i = index">
-                                            <!-- if there is not a selected category, render only the root level-->
-                                            <!-- it a category is selected, render the one more finer level than the level of selected category -->
                                             <ng-container *ngIf="(cat_level === -1 && i === 0) || (cat_level !== -1 && cat_level >= (i - 1))">
                                                 <div *ngFor="let lvl of c">
-                                                    <!-- selected category -->
                                                     <div *ngIf="catID == lvl.id">
-                                                        <!-- bolded entry, rendered when there is no excluding category facets -->
-                                                        <!-- or for the deepest level entry when the Others entry is selected -->
-                                                        <!-- cat_level here corresponds to the level of parent category -->
                                                         <ng-container *ngIf="(!excludingCategoryFacetQueryExists() && cat_level == i) || (excludingCategoryFacetQueryExists() && cat_level < i)">
                                                             <span class="clickable" (click)="setCat('','', lvl.other)" [style.padding-left.rem]="(i * 1)" [title]="lvl.preferredName"><b>{{ lvl.preferredName.substring(0,30) }}<span *ngIf="lvl.preferredName.length>30">...</span></b></span> ({{ lvl.count }})
                                                         </ng-container>
-                                                        <!-- the parent cateory having the same id with the child 'Others' entry -->
                                                         <ng-container *ngIf="(!excludingCategoryFacetQueryExists() && i > cat_level) || (excludingCategoryFacetQueryExists() && i === cat_level)">
                                                             <span class="clickable" (click)="setCat(lvl.preferredName,lvl.id, lvl.other)" [style.padding-left.rem]="(i * 1)" [title]="lvl.preferredName">{{ lvl.preferredName.substring(0,30) }}<span *ngIf="lvl.preferredName.length>30">...</span></span> ({{ lvl.count }})
                                                         </ng-container>
                                                     </div>
-                                                    <!-- other categories in the hierarchy -->
                                                     <div *ngIf="catID!=lvl.id&&cat_level!=i">
                                                         <span class="clickable" (click)="setCat(lvl.name, lvl.id, lvl.other)" [style.padding-left.rem]="(i * 1)" [title]="lvl.preferredName">{{ lvl.preferredName.substring(0,30) }}<span *ngIf="lvl.preferredName.length>30">...</span></span> ({{ lvl.count }})
                                                     </div>
@@ -552,9 +548,10 @@
                     </div>
 
                 </div>
+                -->
                 <!-- End of facets -->
                 <!-- Results -->
-                <div class="col-8 row pr-0">
+                <div class="col-12 row pr-0">
 
                     <!-- Product results -->
                     <div *ngFor="let result of response;let ind=index" class="pr-0" [ngClass]="{'col-12':display=='list','col-4':display=='panel'}">
@@ -562,9 +559,11 @@
                             <a class="text-std" [href]="getProdLink(result)" (click)="onSearchResultClicked($event)">
                                 <!--<a class="text-std" [routerLink]="['/product-details']" [queryParams]="{catalogueId: result.catalogueId, id: result.manufactuerItemId}">-->
                                 <div class="card-body">
+                                    <!--
                                     <div *ngIf="!result.isFromLocalInstance && result.nimbleInstanceName && result.nimbleInstanceName != ''" [title]="result.nimbleInstanceName" class="badge badge-pill badge-secondary p-2" style="position:absolute;right:-0.7rem;top:-0.7rem">
                                         <i class="fa fa-database pr-1"></i> <span>{{result.nimbleInstanceName}}</span>
                                     </div>
+                                    -->
                                     <div class="row">
                                         <div *ngIf="pageRef === 'publish'" #productSelect class="align-self-center" [ngClass]="{'col-1':display=='list','col-12 pb-1':display=='panel'}" (click)="onToggleProductSelectForPublish(result, $event)">
                                             <input type="checkbox" [checked]="productSelected(result.uri)" (click)="$event.preventDefault();  $event.stopPropagation(); productSelect.click();">
@@ -572,17 +571,16 @@
                                         <div class="align-center" [ngClass]="{'col-2':display=='list','col-12 pb-1':display=='panel'}">
                                             <img src="{{imageMap[result.uri]}}" class="thumb" onerror="this.src='assets/empty_img.png';" />
                                         </div>
-                                        <div [ngClass]="{'col-6':display=='list'&&pageRef!=='publish','col-5':display=='list'&&pageRef==='publish','col-12 pt-1 pb-1':display=='panel'}">
+                                        <div [ngClass]="{'col-12':display=='list'&&pageRef!=='publish','col-11':display=='list'&&pageRef==='publish','col-12 pt-1 pb-1':display=='panel'}">
                                             <div style="max-height:1.5rem;overflow:hidden">
                                                 <span [title]="getMultilingualLabel(result[product_name])"><b>{{ getMultilingualLabel(result[product_name]) }}</b></span>
                                             </div>
-                                            <div *ngIf="display=='list'" style="max-height:3rem;overflow:hidden">
-                                                <span *ngIf="result.description" [title]="getMultilingualLabel(result[product_description])"><small>{{getMultilingualLabel(result[product_description])}}</small></span>
+                                            <div style="max-height:3rem;overflow:hidden">
+                                                <span *ngIf="result.uri" [title]="result.uri"><small>ID: {{result.uri}}</small></span>
                                             </div>
                                         </div>
-                                        <!-- Price -->
+                                        <!--
                                         <div [ngClass]="{'col-2 border-right':display=='list','col-12 border-bottom pt-1 pb-2':display=='panel'}">
-                                            <!-- Price is available -->
                                             <ng-container *ngIf="result[product_price] && !checkEmpty(result[product_price])">
                                                 <span class="badge badge-primary-nimble">
                                                     <ng-container *ngIf="result[product_base_quantity] > 1">
@@ -595,9 +593,7 @@
                                                     </span>
                                                 </span>
                                             </ng-container>
-                                            <!-- Price is not available -->
                                             <span class="badge badge-warning" *ngIf="!result[product_price] || checkEmpty(result[product_price])"><span [innerHTML]="'Upon request' | translate"></span></span><br />
-                                            <!-- Shopping cart buttons -->
                                             <ng-container *ngIf="shoppingCartDataService.isShoppingCartButtonVisible(result.classificationUri)">
                                                 <button *ngIf="!getShoppingCartStatus(ind).fb_submitted" class="badge {{getShoppingCartStatus(ind).fb_callback ? 'badge-secondary disabled' : 'badge-primary pointer'}} mt-1" (click)="onAddToCart(result,ind, $event)">
                                                     <span class="fas fa-arrow-down mr-1"></span>
@@ -651,6 +647,7 @@
                                         <div *ngIf="!result[product_vendor]" [ngClass]="{'col-2':display=='list','col-12':display=='panel'}">
                                             <span [innerHTML]="'Unknown' | translate"></span>
                                         </div>
+                                        -->
                                     </div>
                                 </div>
                             </a>

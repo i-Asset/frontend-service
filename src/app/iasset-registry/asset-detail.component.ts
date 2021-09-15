@@ -6,7 +6,11 @@ import { ModelAssetType } from "./model/model-asset-type";
 import { ModelAssetInstance } from "./model/model-asset-instance";
 import { ModelMaintenance } from "./model/model-maintenance";
 import { AssetRegistryService } from "./iasset-registry.service";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
+import { AppComponent } from "../app.component";
+import { CookieService } from "ng2-cookies";
+import { selectDescriptionFromObject } from "../common/utils";
+import { DomSanitizer } from "@angular/platform-browser";
 
 class NewMaintenance {
 constructor(
@@ -46,11 +50,55 @@ export class AssetDetail implements OnInit {
 
     public publishForm: FormGroup = new FormGroup({});
 
+    public streamingDataSrc = "http://iasset.salzburgresearch.at:30001/d/iasset-demo-dashboard-analytics/dashboard-for-system-at-srfg-analytics-machineanalytics?orgId=1&refresh=10s&from=now-5m&to=now&var-system=All&var-thing=All&var-client_app=All&var-quantity=All";
+    public assetUri = null;
+    public assetAAS = null;
+    public isLoading = false;
+    // ToDo: Retrieve actual number of instances
+    availableInstances = "6";
+    getMultilingualLabel = selectDescriptionFromObject;
+
     //-------------------------------------------------------------------------------------
     // Init Functions
     //-------------------------------------------------------------------------------------
     ngOnInit()
     {
+        this.route.queryParams.subscribe(params => {
+            this.assetUri = params['uri'];
+            if (this.assetUri) {
+              this.isLoading = true;
+              this.registryService.getRepositoryElement(decodeURIComponent(this.assetUri))
+              .then(res => {
+                this.assetAAS = res;
+                if (res.submodels && res.submodels.length > 0) {
+                  var count = res.submodels.length;
+                  this.assetAAS["submodelsRef"] = [];
+                  for (var i=0; i<res.submodels.length; i++) {
+                    this.registryService.getRepositoryElement(res.asset.identification.id+"#"+res.submodels[i].idShort)
+                    .then(resRef => {
+                      this.assetAAS["submodelsRef"].push(resRef);
+                      count--;
+                      if (count == 0)
+                        this.isLoading = false;
+                    })
+                    .catch(error => {
+                      count--;
+                      if (count == 0)
+                        this.isLoading = false;
+                    });
+                  }
+                }
+                else {
+                  this.isLoading = false;
+                }
+              })
+              .catch(error => {
+                  this.isLoading = false;
+              });
+            }
+        });
+
+        /*
         if(this.instance && this.instance.assetType != null)
         {
             this.registryService.getAssociatedTypeByName(this.instance.assetType)
@@ -60,10 +108,15 @@ export class AssetDetail implements OnInit {
                 this.selectedPropertyStream = this.propertyNames[0];
             });
         }
+        */
     }
 
     constructor(private registryService: AssetRegistryService,
-                private router: Router) {
+                private router: Router,
+                private cookieService: CookieService,
+                public route: ActivatedRoute,
+                private sanitizer: DomSanitizer,
+                public appComponent: AppComponent) {
 
     }
 

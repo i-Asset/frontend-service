@@ -74,6 +74,17 @@ export class AssetRegistryService {
             .catch(this.handleError);
     }
 
+    getRepositoryElement(elementID: string): Promise<any> {
+        const url = `${this.url}/repository`;
+        const token = 'Bearer ' + this.cookieService.get("bearer_token");
+        const headers = new Headers({ 'Authorization': token , 'iAsset-Identifier': elementID});
+        return this.http
+            .get(url, { headers: headers, withCredentials: true })
+            .toPromise()
+            .then(res => res.json()) // has a parsable JSON-response
+            .catch(this.handleError);
+    }
+
     //-------------------------------------------------------------------------------------
     // POST - Requests
     //-------------------------------------------------------------------------------------
@@ -108,6 +119,17 @@ export class AssetRegistryService {
             .toPromise()
             .then(res => res) // has no parsable response
             .catch(this.handleError);
+    }
+
+    registerAAS(aas: string): Promise<any> {
+      const url = `${this.url}/aas`;
+      const token = 'Bearer ' + this.cookieService.get("bearer_token");
+      const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': token });
+      return this.http
+          .post(url, aas, { headers: headers, withCredentials: true })
+          .toPromise()
+          .then(res => res) // has no parsable response
+          .catch(this.handleError);
     }
 
     //-------------------------------------------------------------------------------------

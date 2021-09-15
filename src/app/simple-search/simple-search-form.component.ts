@@ -646,6 +646,27 @@ export class SimpleSearchFormComponent implements OnInit {
                                     }
                                 }
 
+                                this.callback = true;
+                                this.searchCallStatus.callback("Search done.", true);
+
+                                this.temp = res.result;
+                                for (let doc in this.temp) {
+                                    if (this.temp[doc][this.product_img]) {
+                                        var img = this.temp[doc][this.product_img];
+                                        if (Array.isArray(img)) {
+                                            this.temp[doc][this.product_img] = img[0];
+                                        }
+                                    }
+                                }
+
+                                this.response = copy(this.temp);
+                                this.size = res.totalElements;
+                                this.page = p;
+                                this.start = this.page * this.rows - this.rows + 1;
+                                this.end = this.start + res.result.length - 1;
+                                this.displayShoppingCartMessages()
+
+                                /*
                                 for (let facet in res.facets) {
                                     if (facet == this.item_manufacturer_id) {
                                         let facetEntries = res.facets[this.item_manufacturer_id].entry;
@@ -682,6 +703,7 @@ export class SimpleSearchFormComponent implements OnInit {
                                         break;
                                     }
                                 }
+                                */
 
                             }).catch(error => {
                                 this.searchCallStatus.error("Error while running search.", error);
@@ -1546,12 +1568,8 @@ export class SimpleSearchFormComponent implements OnInit {
 
     getProdLink(res: any): string {
         let link = "";
-        if (res && res.catalogueId && res.manufactuerItemId) {
-            // when the seller is navigated to the search to find a transport service for the ordered products, searchContextService is set.
-            // however, since we do not clear searchContextService, need to check whether its context is valid or not and pass this info as query param to product-details page
-            // to check its validity, we use this.searchContext variable which is not null iff the seller is navigated to the search page to find a transport service provider
-            let isSearchContextValid = this.searchContext && this.searchContext == "orderbp";
-            link += "#/product-details?catalogueId=" + res.catalogueId + "&id=" + res.manufactuerItemId + "&contextValid=" + isSearchContextValid;
+        if (res && res.uri) {
+          link += "#/iasset-registry/asset-detail?uri="+encodeURIComponent(res.uri);
         }
         return link;
     }

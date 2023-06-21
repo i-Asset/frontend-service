@@ -26,6 +26,8 @@ const routes: Routes = [
     { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
     { path: 'catalogue', loadChildren: './catalogue/catalogue.module#CatalogueModule' },
     { path: 'iasset-registry', loadChildren: './iasset-registry/iasset-registry.module#IAssetRegistryModule' },
+    { path: 'itwin', loadChildren: './itwin/itwin.module#ItwinModule'},
+    { path: 'itwin/repository', loadChildren: './itwin/repository/repository.module#RepositoryModule'},
     { path: 'simple-search', loadChildren: './simple-search/simple-search.module#SimpleSearchModule' },
     /*{ path: 'explore-search', loadChildren: './explorative-search/explorative-search.module#ExplorativeSearchModule' },*/
     { path: 'bpe', loadChildren: './bpe/bpe.module#BPEModule' },

@@ -18,7 +18,7 @@
  -->
 
 <nav *ngIf="!minimalView" class="navbar navbar-expand-lg navbar-dark nimble-bg space-after">
-    <a *ngIf="isLoggedIn && (checkRoles('comp_req') || checkRoles('wait_comp'))" class="navbar-brand" routerLink="/dashboard" routerLinkActive="active" [title]="config.platformName">
+    <a *ngIf="isLoggedIn && (checkRoles('comp_req') || checkRoles('wait_comp'))" class="navbar-brand" routerLink="/simple-search" routerLinkActive="active" [title]="config.platformName">
         <img id="nav-logo" [src]="config.logoPath" height="30" class="d-inline-block align-top" alt="">
     </a>
     <a *ngIf="isLoggedIn && (!checkRoles('comp_req') && !checkRoles('wait_comp'))" class="navbar-brand" routerLink="/user-mgmt/company-registration" routerLinkActive="active" [title]="config.platformName">
@@ -52,6 +52,19 @@
                 <a class="nav-link" routerLink="/dashboard">
                     <i class="fa fa-list-ul"></i> <span [innerHTML]="'Dashboard' | translate"></span>
                 </a>
+            </li>
+            <li ngbDropdown class="nav-item dropdown" routerLinkActive="active">
+                <a class="nav-link pointer" [title]="'i-Twin'" id="dropdownMenuItwin" ngbDropdownToggle>
+                    <i class="fa fa-user-friends"></i> <span [innerHTML]="'i-Twin' | translate"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuItwin" ngbDropdownMenu>
+                    <a class="dropdown-item" routerLink="/itwin/repository">
+                        <i class="fa fa-toolbox dd-icon"></i> <span [innerHTML]="'Asset Repository' | translate"></span>
+                    </a>
+                    <a class="dropdown-item" routerLink="/itwin/distnet" routerLinkActive="active">
+                        <i class="fa fa-share-alt dd-icon"></i> <span [innerHTML]="'Distribution Network' | translate"></span>
+                    </a>
+                </div>
             </li>
             <li class="nav-item" *ngIf="checkRoles('comp_req')" routerLinkActive="active">
                 <a class="nav-link" [routerLink]="['/simple-search']" [queryParams]="{sTop: 'prod'}">

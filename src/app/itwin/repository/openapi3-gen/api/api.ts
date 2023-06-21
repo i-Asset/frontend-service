@@ -1,0 +1,15 @@
+export * from './assetAdministrationShellDirectoryInterfaceForConnector.service';
+import { AssetAdministrationShellDirectoryInterfaceForConnectorService } from './assetAdministrationShellDirectoryInterfaceForConnector.service';
+export * from './assetAdministrationShellEnvironmentAPI.service';
+import { AssetAdministrationShellEnvironmentAPIService } from './assetAdministrationShellEnvironmentAPI.service';
+export * from './assetAdministrationShellEnvironmentSerializationAPI.service';
+import { AssetAdministrationShellEnvironmentSerializationAPIService } from './assetAdministrationShellEnvironmentSerializationAPI.service';
+export * from './assetAdministrationShellRepositoryInterfaceForConnector.service';
+import { AssetAdministrationShellRepositoryInterfaceForConnectorService } from './assetAdministrationShellRepositoryInterfaceForConnector.service';
+export * from './assetAdministrationShellRepositoryInterfaceSPEC.service';
+import { AssetAdministrationShellRepositoryInterfaceSPECService } from './assetAdministrationShellRepositoryInterfaceSPEC.service';
+export * from './lookupDependencyController.service';
+import { LookupDependencyControllerService } from './lookupDependencyController.service';
+export * from './submodelRepositoryInterfaceConnector.service';
+import { SubmodelRepositoryInterfaceConnectorService } from './submodelRepositoryInterfaceConnector.service';
+export const APIS = [AssetAdministrationShellDirectoryInterfaceForConnectorService, AssetAdministrationShellEnvironmentAPIService, AssetAdministrationShellEnvironmentSerializationAPIService, AssetAdministrationShellRepositoryInterfaceForConnectorService, AssetAdministrationShellRepositoryInterfaceSPECService, LookupDependencyControllerService, SubmodelRepositoryInterfaceConnectorService];

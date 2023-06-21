@@ -1,6 +1,6 @@
 # Frontend Service
 
-Frontend Services for the Nimble Platform.
+Frontend Services for the i-Asset Platform.
 
 ## Development
 
@@ -18,7 +18,7 @@ The following versions are used for deployment:
 In order to install all the dependencies execute
 
 ```shell
-npm install
+npm install --ignore-scripts # ignore-scripts can remove issues with the python executable in the path.
 ```
 
 In order to build the resources execute

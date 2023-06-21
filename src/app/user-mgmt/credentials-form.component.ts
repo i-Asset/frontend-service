@@ -69,8 +69,9 @@ export class CredentialsFormComponent implements OnInit {
                 this.appComponent.checkLogin(this.redirect, true);
             else if (!this.appComponent.checkRoles("comp_req") && !this.appComponent.checkRoles('wait_comp'))
                 this.appComponent.checkLogin("/user-mgmt/company-registration");
-            else
+            else {
                 this.appComponent.checkLogin("/dashboard");
+            }
         }
         else {
             setTimeout(function() {
@@ -121,8 +122,9 @@ export class CredentialsFormComponent implements OnInit {
                     this.appComponent.checkLogin(this.redirect, true);
                 else if (!res.companyID && myGlobals.config.companyRegistrationRequired)
                     this.appComponent.checkLogin("/user-mgmt/company-registration");
-                else
+                else {
                     this.appComponent.checkLogin("/dashboard");
+                }
             })
             .catch(error => {
                 this.cookieService.delete("user_id");

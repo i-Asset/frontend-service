@@ -273,8 +273,9 @@ export class AppComponent implements OnInit {
                         window.location.href = this.generateProductURL(catalogueId, id);
                     } else if (!this.response.companyID && myGlobals.config.companyRegistrationRequired) {
                         this.checkLogin("/user-mgmt/company-registration");
-                    } else
+                    } else {
                         this.checkLogin("/dashboard");
+                    }
 
                 }).catch((e) => {
                     this.submitCallStatus.error("Login failed", e);

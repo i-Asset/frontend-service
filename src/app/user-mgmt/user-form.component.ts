@@ -173,8 +173,9 @@ export class UserFormComponent implements OnInit {
                 this.submitCallStatus.callback("Login Successful");
                 if (!res.companyID && myGlobals.config.companyRegistrationRequired)
                     this.appComponent.checkLogin("/user-mgmt/company-registration");
-                else
+                else {
                     this.appComponent.checkLogin("/dashboard");
+                }
             })
             .catch(error => {
                 this.cookieService.delete("user_id");
